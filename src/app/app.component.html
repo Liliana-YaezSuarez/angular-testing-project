@@ -1,3 +1,40 @@
 <div>
   <h1>Welcome to {{ title }}!</h1>
 </div>
+
+
+
+<!---AGREGAR--->
+<div>
+    @for(item of elemento; track item){
+
+      <div id="botones">
+        <!---ELIMINAR--->
+        <div>
+            <button (click)="deleteTask()">Eliminar</button>
+        </div>
+
+        <!---EDITAR--->
+        <div>
+            <button (click)="getTasks()">Editar</button>
+        </div>
+
+      </div>
+
+      {{item}}
+      <br>
+    }
+
+    <input type="text" name="nuevo" [(ngModel)]="nuevo">
+    <button (click)="addTask()">Agregar</button>
+</div>
+
+<br>
+<!---ACTUALIZAR--->
+<div>
+    @if (getTasks()==null) {
+    }@else {
+      <input t type="text" name="nuevo" [(ngModel)]="nuevo">
+      <button (click)="deleteTask(); addTask()">Actualizar</button>
+    }
+</div>
